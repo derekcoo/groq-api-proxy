@@ -7,7 +7,7 @@ const app = express();
 app.use(
   '/',
   createProxyMiddleware({
-    target: 'https://api.groq.com', // 目标 API 地址
+    target: 'https://api.groq.com/openai', // 目标 API 地址
     changeOrigin: true, // 修改请求头中的 Origin
     pathRewrite: { '^/': '/openai/' }, // 重写路径
     onProxyReq: (proxyReq, req, res) => {
