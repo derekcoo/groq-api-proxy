@@ -1,8 +1,8 @@
-{
+  {
     "rewrites": [
       {
-        "source": "/(.*)",  // 匹配所有请求
-        "destination": "https://api.groq.com/openai/$1",  // 将请求转发到 api.groq.com/openai，并保留路径
+        "source": "/(.*)",
+        "destination": "https://api.groq.com/openai/$1",
         "headers": {
           "x-forwarded-host": "groq.quoooai.top",
           "x-forwarded-proto": "https"
@@ -10,11 +10,4 @@
       }
     ]
   }
-
   ```
-
-  **解释:**
-    *  `rewrites` 定义了请求重写的规则。
-    *  `source: "/(.*)"` 表示匹配所有路径的请求。
-    *  `destination: "https://api.groq.com/openai/$1"` 表示将请求转发到 `api.groq.com/openai`， `$1` 保留了原有路径。
-    * `headers` 添加了 `x-forwarded-host` 和 `x-forwarded-proto` 头部，这样后端服务器可以知道请求的原始域名和协议。
